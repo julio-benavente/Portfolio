@@ -1,0 +1,228 @@
+@import "custom";
+
+.site-section {
+	background-color: black;
+	width: 100vw;
+	height: 200vh;
+}
+
+body {	
+	background: $white;
+	color: #798a9a;
+	line-height: 1.7;
+	font-size: 16px;
+	font-weight: 300;
+}
+
+
+h1, h2,h3,h4, h5 {
+	color: #2c3e50;
+	font-weight: 200;
+}
+a {
+	transition: .3s all;
+	color: $primary;
+	&:hover, &:focus, &:active {
+		color: darken($primary, 5%);
+		text-decoration: none;
+	}
+}
+
+
+
+.parent-nav-link-padding {
+	padding: 15px 20px!important;
+}
+
+.site-navbar {
+	
+	border: none;
+	box-shadow: none;
+	border-radius: 0px;
+	margin-bottom: 0px;
+	background: none;
+	position: absolute;
+	top: 20px;
+	width: 100%;
+	z-index: 200;
+	background: $white;
+
+	.navbar-brand {
+		display: inline-block;
+		border: 2px solid $white;
+		padding: 5px 20px;
+		color: $white;
+		text-transform: uppercase;
+		letter-spacing: .2em;
+		&:hover {
+			color: $white;
+		}
+	}
+
+	&.bg-light {
+		background: transparent!important;
+		@include media-breakpoint-down(md) {
+			background: $white!important;
+			top: 0;
+
+			.navbar-brand {
+				display: inline-block;
+				font-size: 18px;
+				border: 2px solid $black;
+				padding: 2px 10px!important;
+				color: $black;
+			}
+
+		}
+	}
+	
+
+	.navbar-toggler {
+		@include media-breakpoint-up(lg) {
+			// position: absolute;
+			// right: 0;	
+		}
+	}
+	
+
+	
+	
+
+	// main nav style
+	.navbar-nav {
+		> li {
+			> a {
+				@extend .parent-nav-link-padding;
+				color: $white!important;
+				font-size: 14px;
+				font-weight: 400;
+				letter-spacing: .1em;
+				position: relative;
+				text-transform: uppercase;
+				letter-spacing: .2em;
+				@include media-breakpoint-down(md) {
+					color: rgba(0,0,0,.7)!important;
+				}
+				
+			}
+		}
+		&.active {
+			> a {
+				color: $primary!important;
+			}
+		}
+	}
+
+	
+	
+	&.scrolled {
+		background: $white;
+		box-shadow: 0px 1px 3px 0px rgba(0,0,0,.09);
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		transform: translateY(-100%);
+
+		&.bg-light {
+			background: $white!important;
+		}
+		.navbar-brand {
+			display: inline-block;
+			font-size: 18px;
+			border: 2px solid $black;
+			padding: 2px 10px!important;
+			
+		}
+		
+		&.awake, &.sleep {
+			transition: .3s all ease;	
+		}
+		&.awake {
+			transform: translateY(0%);
+			background: $white!important;
+		}
+		&.sleep {
+			transform: translateY(-90%);
+			background: $primary!important;
+		}
+		.navbar-brand {
+			color: $black;
+		}
+		.dropdown {
+			> a {
+				&:before {
+					color: rgba(0,0,0,.4);
+				}
+			}
+		}
+		
+		.navbar-nav {
+			> li {
+				> a {
+					color: rgba(0,0,0,.7)!important;
+					&:hover {
+						color: $primary!important;
+					}
+					&.active {
+						color: $primary!important;
+					}
+				}
+				&.active {
+					> a {
+						color: $primary!important;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.site-hero {
+	background-color: #ccc;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	position: relative;
+	overflow: hidden;
+	&, .row {
+		height: 100vh;
+		min-height: 800px;
+	}
+	&:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0,0,0,.5);
+	}
+	h1 {
+		font-weight: 200;
+		margin-bottom: 20px;
+		display: block;
+		strong {
+			font-weight: 800;
+		}
+		@include media-breakpoint-up(md) {
+			font-size: 70px;
+		}
+	}
+	h1, .lead {
+		font-weight: 200;
+		color: $white;
+	}
+	.lead {
+		line-height: 2;
+	}
+	.site-subheading {
+		max-width: 640px;
+		margin: 0 auto;
+		color: rgba(255,255,255,.5);
+	}
+
+}
